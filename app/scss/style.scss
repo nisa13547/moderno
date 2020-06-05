@@ -2,7 +2,7 @@
 @import 'global';
 @import 'fonts';
 
-
+// start header
 .header__top-inner{
     display: flex;
     justify-content: space-between;
@@ -51,6 +51,10 @@
         font-size: 14px;
     }
 }
+
+// end header
+
+// start search
 .search{
     background-repeat: no-repeat;
     background-size: cover;
@@ -106,4 +110,125 @@
     }
 }
 
+// end search
+
+// start products
+
+.products{
+      padding: 110px 0 110px;
+      background-color: $grey;
+  }
+.products__inner-btn{
+    text-align: center;
+    margin-bottom: 60px;
+    button{
+        padding: 12px 20px;
+        border: none;
+        background-color: #fff;
+        color: $bg;
+        & + button{
+            margin-left: 5px;
+        }
+        cursor: pointer;
+        &.mixitup-control-active{
+            background-color: $red;
+            color: #fff;
+            outline: none;
+        }
+    }
+}
+.products__inner-box{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.product__item{
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0px 1px 2px 0px rgba(205, 214, 222, 0.75);
+    margin-bottom: 30px;
+    &-img{
+        min-height: 250px;
+        background-repeat: no-repeat;
+        display: block;
+        background-position: center;
+        background-size: cover;
+    }
+    &-content{
+        min-height: 90px;
+        padding: 10px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 500;
+        border-bottom: 1px solid #e7ecf2;
+    }
+    &-name{
+        max-width: 310px;
+        display: block;
+    }
+    &-title{
+        color: $bg;
+        font-size: 18px;
+        display: block;
+    }
+    &-category{
+        display: block;
+        color: $green;
+        font-size: 14px;
+    }
+    &-price{
+        font-size: 20px;
+        color: $bg;
+        font-weight: 700;
+    }
+    &-info{
+        min-height: 70px;
+        padding: 10px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &-author{
+        display: flex;
+        align-items: center;
+        span{
+        font-size: 14px;
+        font-weight: 500;
+        }
+        .avatar{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+            margin-right: 14px;
+        }
+    }
+}
+.products__bottom-btn{
+    text-align: center;
+    button{
+        margin: 45px 5px 0;
+        box-shadow: 0px 1px 3px 0px rgba(204, 216, 228, 0.75);
+        border: none;
+        background-color: #fff;
+        color: $bg;
+        padding: 20px 30px;
+        cursor: pointer;
+        &.mixitup-control-active{
+            background-color: $red;
+            color: #fff;
+            outline: none;
+        }
+    }
+
+}
+
+
+
   
+
+//   end products.
