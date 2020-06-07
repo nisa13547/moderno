@@ -192,6 +192,7 @@
     &-author{
         display: flex;
         align-items: center;
+        max-width: 250px;
         span{
         font-size: 14px;
         font-weight: 500;
@@ -205,6 +206,12 @@
             background-size: cover;
             display: inline-block;
             margin-right: 14px;
+        }
+    }
+    &-star{
+        span{
+            color: $bg;
+            font-size: 12px;
         }
     }
 }
@@ -224,11 +231,38 @@
             outline: none;
         }
     }
-
 }
 
+//   end products
 
+// start slider
 
+.product-slider{
+    padding: 110px 0 100px;
+    .slick-dots{
+        margin-top: 50px;
+        text-align: center;
+        li{
+            display: inline-block;
+            margin-right: 3px;
+            margin-left: 3px;
+           &.slick-active{
+               button{
+                  background-color: $green;
+                  outline: none;
+                }
+            }
+            button{
+                border-radius: 50%;
+                background-color: rgb(232, 232, 232);
+                border: none;
+                font-size: 0;
+                width: 16px;
+                height: 16px;  
+                cursor: pointer;     
+            }
+        }
+    }
+}
   
-
-//   end products.
+// end slider
