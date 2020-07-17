@@ -8,13 +8,13 @@ let gulp = require('gulp'),
     cssmin=require('gulp-cssmin');
 
     gulp.task('sass', function(){
-       return gulp.src('app/scss/style.scss')
+       return gulp.src('docs/scss/**/*.scss')
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(rename({suffix:'.min'}))
         .pipe(autoprefixer({
             overrideBrowsersList: ['last 8 versions']
         }))
-        .pipe(gulp.dest('app/css'))
+        .pipe(gulp.dest('docs/css'))
         .pipe(browserSync.reload({stream: true}))
     });
 
@@ -22,33 +22,36 @@ let gulp = require('gulp'),
         return gulp.src([
             'node_modules/normalize.css/normalize.css',
             'node_modules/slick-carousel/slick/slick.css',
-            'node_modules/magnific-popup/dist/magnific-popup.css'
+            'node_modules/rateyo/src/jquery.rateyo.css',
+            
         ])
         .pipe(concat('libs.min.css'))
         .pipe(cssmin())
-        .pipe(gulp.dest('app/css'))
+        .pipe(gulp.dest('docs/css'))
 
     });
 
     gulp.task('script', function (){
         return gulp.src([
             'node_modules/slick-carousel/slick/slick.js',
-            'node_modules/magnific-popup/dist/jquery.magnific-popup.js'
+            'node_modules/rateyo/src/jquery.rateyo.js',
+            'node_modules/mixitup/dist/mixitup.js',
+            
         ])
         .pipe(concat('libs.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('app/js'))
+        .pipe(gulp.dest('docs/js'))
 
     });
 
     gulp.task('html', function (){
-        return gulp.src('app/*.html')
+        return gulp.src('docs/*.html')
         .pipe(browserSync.reload({stream: true}))
 
     });
 
     gulp.task('js', function (){
-        return gulp.src('app/js/*.js')
+        return gulp.src('docs/js/*.js')
         .pipe(browserSync.reload({stream: true}))
 
     });
@@ -56,15 +59,16 @@ let gulp = require('gulp'),
     gulp.task('browser-sync', function(){
         browserSync.init({
             server: {
-                baseDir: "app/"
+                baseDir: "docs/"
             }
         });
     });
 
     gulp.task('watch', function(){
-        gulp.watch('app/scss/style.scss', gulp.parallel('sass'))
-        gulp.watch('app/*.html', gulp.parallel('html'))
-        gulp.watch('app/js/*.js', gulp.parallel('js'))
+        gulp.watch('docs/scss/**/*.scss', gulp.parallel('sass'))
+        gulp.watch('docs/*.html', gulp.parallel('html'))
+        gulp.watch('docs/js/*.js', gulp.parallel('js'))
     });
 
-    gulp.task('default', gulp.parallel ('style', 'script', 'sass', 'watch', 'browser-sync'));
+gulp.task('default', gulp.parallel('style', 'script', 'sass', 'watch', 'browser-sync'));
+    
